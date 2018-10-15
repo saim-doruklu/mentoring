@@ -1,8 +1,13 @@
-package daos;
+package com.mentoring.daos;
 
 
 
-import entities.category;
+import com.mentoring.entities.category;
+import org.hibernate.Session;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class CategoryDao {
 	

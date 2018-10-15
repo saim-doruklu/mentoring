@@ -1,10 +1,10 @@
-package daos;
+package com.mentoring.daos;
 
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import org.hibernate.Session;
-import entities.answer;
+import com.mentoring.entities.answer;
 
 @ManagedBean(name="answerDao")
 @ApplicationScoped

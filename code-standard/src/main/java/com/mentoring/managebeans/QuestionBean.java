@@ -1,4 +1,4 @@
-package managebeans;
+package com.mentoring.managebeans;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -14,11 +14,11 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import org.primefaces.model.UploadedFile;
 
-import daos.AnswerDao;
-import daos.QuestionDao;
-import entities.answer;
-import entities.category;
-import entities.question;
+import com.mentoring.daos.AnswerDao;
+import com.mentoring.daos.QuestionDao;
+import com.mentoring.entities.answer;
+import com.mentoring.entities.category;
+import com.mentoring.entities.question;
 
 @ManagedBean(name = "questionBean")
 

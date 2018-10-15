@@ -1,4 +1,4 @@
-package managebeans;
+package com.mentoring.managebeans;
 
 public interface actions {
 	public void add();

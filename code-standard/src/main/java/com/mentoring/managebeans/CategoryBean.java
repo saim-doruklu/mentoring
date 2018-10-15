@@ -1,4 +1,4 @@
-package managebeans;
+package com.mentoring.managebeans;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import daos.CategoryDao;
-import entities.category;
+import com.mentoring.daos.CategoryDao;
+import com.mentoring.entities.category;
 
 
 public class CategoryBean implements actions {

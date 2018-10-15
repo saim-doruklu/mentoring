@@ -1,4 +1,8 @@
-package managebeans;
+package com.mentoring.managebeans;
+
+import com.mentoring.daos.SessionUtils;
+import com.mentoring.daos.UserDao;
+import com.mentoring.entities.user;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -7,14 +11,10 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
-
-import daos.SessionUtils;
-import daos.UserDao;
-import entities.user;
    
 @ManagedBean(name="loginBean")
-  
-@SessionScoped 
+
+@SessionScoped
 
 public class LoginBean {
 	

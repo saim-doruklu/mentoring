@@ -1,4 +1,4 @@
-package managebeans;
+package com.mentoring.managebeans;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -12,8 +12,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
-import daos.QuestionDao;
-import entities.question;
+import com.mentoring.daos.QuestionDao;
+import com.mentoring.entities.question;
 
 @ManagedBean(name = "quizBean")
 @ViewScoped
@@ -23,7 +23,7 @@ public class QuizBean {
 	@ManagedProperty(value = "#{questionDao}")
 	private QuestionDao questionDao;
 	
-	private List<entities.question> questions;
+	private List<com.mentoring.entities.question> questions;
 	
 	private HashMap<question,String[]> quests = new HashMap<question,String[]>();
 	
@@ -45,12 +45,12 @@ public class QuizBean {
 		
 	}
 
-	public List<entities.question> getQuestions(){
+	public List<com.mentoring.entities.question> getQuestions(){
 		questions = questionDao.createQuiz();
 		return questions;
 	}
 
-	public void setQuestions(List<entities.question> questions){
+	public void setQuestions(List<com.mentoring.entities.question> questions){
 		this.questions = questions;
 	}
 	
@@ -114,7 +114,7 @@ public class QuizBean {
     		
     		Map.Entry mentry = (Map.Entry)iterator.next();
     		
-    		if (((entities.question) mentry.getKey()).getAnswer().getTrue1().equals(mentry.getValue()))
+    		if (((com.mentoring.entities.question) mentry.getKey()).getAnswer().getTrue1().equals(mentry.getValue()))
     		{ 
     			piket++; 
     			messages.put((question) mentry.getKey(), "Right Choice");
@@ -122,7 +122,7 @@ public class QuizBean {
     		}
     		else
     		{
-    			messages.put((question) mentry.getKey(), "Wrong! Right answer : "+((entities.question) mentry.getKey()).getAnswer().getTrue1());
+    			messages.put((question) mentry.getKey(), "Wrong! Right answer : "+((com.mentoring.entities.question) mentry.getKey()).getAnswer().getTrue1());
     		}
     		
     	}

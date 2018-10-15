@@ -1,4 +1,4 @@
-package managebeans;
+package com.mentoring.managebeans;
 
 import java.util.List;
 
@@ -9,18 +9,18 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import daos.UserDao;
+import com.mentoring.daos.UserDao;
 
 @ManagedBean(name = "userBean")
 @SessionScoped
 public class UserBean implements actions {
 	
-	private entities.user user = new entities.user();
+	private com.mentoring.entities.user user = new com.mentoring.entities.user();
 	
 	@ManagedProperty(value = "#{userDao}")
 	private UserDao userDao;
 	
-	private List<entities.user> users;
+	private List<com.mentoring.entities.user> users;
 	
 	private String password;
 	
@@ -35,22 +35,22 @@ public class UserBean implements actions {
 	public void init() {
 	}
 
-	public entities.user getUser() {
+	public com.mentoring.entities.user getUser() {
 		return user;
 	}
 
-	public void setUser(entities.user user) {
+	public void setUser(com.mentoring.entities.user user) {
 		this.user = user;
 	}
 
-	public List<entities.user> getUsers() {
+	public List<com.mentoring.entities.user> getUsers() {
 		
 		users = userDao.getUsers();
 		
 		return users;
 	}
 
-	public void setUsers(List<entities.user> users) {
+	public void setUsers(List<com.mentoring.entities.user> users) {
 		
 		this.users = users;
 	}
@@ -127,7 +127,7 @@ public class UserBean implements actions {
 			else{
 		user.setRoli(userDao.setRoli(2));
 		userDao.add(user);
-		user = new entities.user();
+		user = new com.mentoring.entities.user();
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "INFO! ", "Your account was sucessfully created"));
 		}
 		}
@@ -156,7 +156,7 @@ public class UserBean implements actions {
 		
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "INFO", "The account was sucessfully updated"));
 		
-		user = new entities.user();
+		user = new com.mentoring.entities.user();
 		
 	return "user";	}
 	}
@@ -178,12 +178,12 @@ public class UserBean implements actions {
 	
 	public String turnBack(){
 		
-		user = new entities.user();
+		user = new com.mentoring.entities.user();
 		
 		return "adminpage";
 	}
 	public String getPage(){
-		user = new entities.user();
+		user = new com.mentoring.entities.user();
 		return "user?faces-redirect=true";
 	}
 	

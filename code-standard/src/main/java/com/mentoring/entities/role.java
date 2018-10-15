@@ -1,4 +1,4 @@
-package entities;
+package com.mentoring.entities;
 
 
 import java.util.List;

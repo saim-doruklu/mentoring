@@ -1,4 +1,4 @@
-package daos;
+package com.mentoring.daos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import org.hibernate.Session;
 
-import entities.question;
+import com.mentoring.entities.question;
 
 @ManagedBean(name = "questionDao")
 
@@ -169,7 +169,7 @@ public class QuestionDao {
 		
 		CategoryDao categoryDao = new CategoryDao();
 		
-		List<entities.category> categories = categoryDao.getCategories();
+		List<com.mentoring.entities.category> categories = categoryDao.getCategories();
 		
 		List<question> questions = new ArrayList<question>();
 		

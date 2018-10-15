@@ -1,4 +1,4 @@
-package daos;
+package com.mentoring.daos;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,8 +6,8 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import org.hibernate.Session;
 
-import entities.role;
-import entities.user;
+import com.mentoring.entities.role;
+import com.mentoring.entities.user;
 
 @ManagedBean(name="userDao")
 
@@ -90,7 +90,7 @@ public class UserDao {
 		
 		public List<user> getUsers(){
 			
-        	List<user> users = new ArrayList<>();
+        	List<user> users = new ArrayList<user>();
         	
              Session session = hibernateUtil.getSessionFactory().openSession();
              
@@ -183,7 +183,7 @@ Session session = hibernateUtil.getSessionFactory().openSession();
 	            String sql =  "from user s where"
 					+ " s.username='"+username+"'";
 	            
-	          user user =  (entities.user) session.createQuery(sql).getSingleResult();
+	          user user =  (com.mentoring.entities.user) session.createQuery(sql).getSingleResult();
 	          
 	           if(user==null)
 	        	   

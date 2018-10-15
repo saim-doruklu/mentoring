@@ -1,4 +1,4 @@
-package daos;
+package com.mentoring.daos;
 
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;

@@ -1,4 +1,4 @@
-package daos;
+package com.mentoring.daos;
 
 
 import org.hibernate.SessionFactory;
