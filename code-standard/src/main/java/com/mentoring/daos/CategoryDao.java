@@ -11,7 +11,6 @@ import java.util.List;
 
 public class CategoryDao {
 	
-//-------------------------------------------------------------------------------------------------------------------------	
 	public void add(category c){
 		
 	    Session session = HibernateUtil.getSessionFactory().openSession();
@@ -33,8 +32,6 @@ public class CategoryDao {
 	    }
 	}
 
-//-------------------------------------------------------------------------------------------------------------------------
-	
 	public void delete(int id){
 		
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -59,9 +56,7 @@ public class CategoryDao {
             
            }
 	}
-	
-//------------------------------------------------------------------------------------------------------------------------
-	
+
 	public void update(category c){
 		
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -82,9 +77,7 @@ public class CategoryDao {
              session.close();
         }
 	}
-	
-//------------------------------------------------------------------------------------------------------------------------
-	
+
 	@SuppressWarnings("unchecked")
 	
 	public List<category> getCategories(){
@@ -109,8 +102,6 @@ public class CategoryDao {
          return categories;
     	
     }
-	
-//------------------------------------------------------------------------------------------------------------------------
 
 	public category get(int id){
 		

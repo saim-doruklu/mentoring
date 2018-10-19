@@ -65,9 +65,7 @@ public class UserDao {
 	         session.close();
 	    }
 	}
-	
-//------------------------------------------------------------------------------------------------------------------------
-	
+
 	public void delete(int id){
 		
         Session session = HibernateUtil.getSession();
@@ -91,9 +89,8 @@ public class UserDao {
         }
         
 	}
-	
-//------------------------------------------------------------------------------------------------------------------------	
-        public void update(user u){
+
+	public void update(user u){
     	
             Session session = HibernateUtil.getSession();
             
@@ -113,9 +110,7 @@ public class UserDao {
             }
     		
     	}
-       
-//------------------------------------------------------------------------------------------------------------------------        
-        
+
 		@SuppressWarnings("unchecked")
 		
 		public List<user> getUsers(){
@@ -140,9 +135,7 @@ public class UserDao {
              return users;
 
         }
-		
-//------------------------------------------------------------------------------------------------------------------------
-		
+
 		public user getUser(String password,String username){
 			
 	        Session session = HibernateUtil.getSession();
@@ -161,9 +154,7 @@ public class UserDao {
 	        }
 	        
 		}
-		
-//------------------------------------------------------------------------------------------------------------------------
-	
+
 		public role getRole(int id){
 			
 			 Session session = HibernateUtil.getSession();
@@ -180,7 +171,6 @@ public class UserDao {
 		      
 		}
 		
-//------------------------------------------------------------------------------------------------------------------------
 		public user get(int id){
 			
 	        Session session = HibernateUtil.getSession();
@@ -203,7 +193,7 @@ public class UserDao {
 	        }
 	        return u;
 		}
-//------------------------------------------------------------------------------------------------------------------------
+
 		public boolean exist(String username){
           Session session = HibernateUtil.getSession();
 	        

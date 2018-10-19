@@ -24,7 +24,6 @@ public class QuestionDao {
 
 	private final int maxCategories = 20;
 
-	//------------------------------------------------------------------------------------------------------------------------
 	public void add(question q) {
 
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -47,8 +46,6 @@ public class QuestionDao {
 		}
 	}
 
-//------------------------------------------------------------------------------------------------------------------------	
-	
 	public void delete(int id) {
 		
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -73,8 +70,6 @@ public class QuestionDao {
 		}
 	}
 
-//------------------------------------------------------------------------------------------------------------------------
-	
 	public void update(question q) {
 		
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -95,8 +90,7 @@ public class QuestionDao {
 			session.close();
 		}
 	}
-	
-//-------------------------------------------------------------------------------------------------------------------------
+
 	@SuppressWarnings("unchecked")
 	
 	public List<question> getQuestion() {
@@ -120,7 +114,6 @@ public class QuestionDao {
 		return quests;
 	}
 	
-//------------------------------------------------------------------------------------------------------------------------	
 	@SuppressWarnings("unchecked")
 	
 	public List<question> getQuestionUser(int id) {
@@ -145,7 +138,6 @@ public class QuestionDao {
 		return quests;
 	}
 	
-//------------------------------------------------------------------------------------------------------------------------
 
 	@SuppressWarnings("unchecked")
 	
@@ -170,8 +162,6 @@ public class QuestionDao {
 		return quest;
 
 	}
-	
-//--------------------------------------------------------------------------------------------------------------------------
 
 	public List<question> createQuiz() {
 	
@@ -199,8 +189,7 @@ public class QuestionDao {
 		}
 		return questions;
 	}
-//------------------------------------------------------------------------------------------------------------------------
-	
+
 	public question get(int id) {
 		
 		Session session = HibernateUtil.getSessionFactory().openSession();

@@ -10,8 +10,8 @@ import org.hibernate.Session;
 @ManagedBean(name="answerDao")
 @ApplicationScoped
 public class AnswerDao {
-//-------------------------------------------------------------------------------------------------------------------------	
-public void add(Answer a){
+
+	public void add(Answer a){
 		
 	    Session session = HibernateUtil.getSessionFactory().openSession();
 	    
@@ -34,7 +34,7 @@ public void add(Answer a){
 	    }
 	    
 	}
-//--------------------------------------------------------------------------------------------------------------------------
+
 	public void delete(int id){
 		
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -61,7 +61,6 @@ public void add(Answer a){
         }
 	}
 	
-//-------------------------------------------------------------------------------------------------------------------------
 	public void update(Answer q){
 		
         Session session = HibernateUtil.getSessionFactory().openSession();
