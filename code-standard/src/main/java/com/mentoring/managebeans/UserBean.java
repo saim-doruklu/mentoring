@@ -125,7 +125,7 @@ public class UserBean implements actions {
 			}
 			
 			else{
-		user.setRoli(userDao.setRole(2));
+		user.setRoli(userDao.getRole(2));
 		userDao.add(user);
 		user = new com.mentoring.entities.user();
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "INFO! ", "Your account was sucessfully created"));
