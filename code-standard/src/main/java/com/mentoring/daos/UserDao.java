@@ -1,6 +1,8 @@
 package com.mentoring.daos;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
@@ -12,24 +14,43 @@ import com.mentoring.entities.user;
 @ManagedBean(name="userDao")
 
 @ApplicationScoped
-
+/*
+ * Checkstyle checks :
+ * Indentation should be white spaces instead of tabs
+ * There should be brackets in if else statements
+ *
+ * PMD checks :
+ * AvoidPrintStackTrace : Used logger instead
+ * ShortVariable: Changed variable name add
+ * MethodArgumentCouldBeFinal: Defined user as final in add
+ * LocalVariableCouldBeFinal: Defined session as final in add
+ * UselessParantheses: Removed parantheses in setRoli
+ * UnnecessaryFullyQualifiedName: removed unnecessary package name in exist()
+ * CommentDefaultAccessModifier: Commented logger
+ * Only one return: Substituted two returns with one return in exist()
+ * MethodNamingConventions: Method name Exist changed to exist
+ * AtLeastOneConsructor: ? is it necessary
+ * LinguisticNaming: name of the method setRoli changed to setRole
+ *
+ */
 public class UserDao {
+	/* default */ Logger logger = Logger.getLogger(UserDao.class.getName());
 	
-	
-	public void add(user u){
+	public void add(final user user){
         Session session = hibernateUtil.getSessionFactory().openSession();
         
         try {
         	
         	session.beginTransaction();
         	
-	        session.save(u);
+	        session.save(user);
 	        
 	        session.getTransaction().commit();
 	        
 	    }catch(Exception e){
 	    	
-	    	e.printStackTrace();
+	    	e.printStackTrace(); // AvoidPrintStackTrace : Use logger instead
+          logger.log(Level.WARNING, "Hibernate error ",e);
 	    	
 	    } finally {
 	         session.close();
@@ -134,14 +155,14 @@ public class UserDao {
 		
 //------------------------------------------------------------------------------------------------------------------------
 	
-		public role setRoli(int id){
+		public role setRole(int id){
 			
 			 Session session = hibernateUtil.getSessionFactory().openSession();
 			 
 		        try {
 		           session.beginTransaction();
 		           
-		           return( session.load(role.class, new Integer(id)));
+		           return session.load(role.class, new Integer(id));
 		    
 		        }finally {
 		        	
@@ -174,7 +195,7 @@ public class UserDao {
 	        return u;
 		}
 //------------------------------------------------------------------------------------------------------------------------
-		public boolean Exist(String username){
+		public boolean exist(String username){
 Session session = hibernateUtil.getSessionFactory().openSession();
 	        
 	        try {  
@@ -183,15 +204,9 @@ Session session = hibernateUtil.getSessionFactory().openSession();
 	            String sql =  "from user s where"
 					+ " s.username='"+username+"'";
 	            
-	          user user =  (com.mentoring.entities.user) session.createQuery(sql).getSingleResult();
+	          user user =  (user) session.createQuery(sql).getSingleResult();
 	          
-	           if(user==null)
-	        	   
-	        	   return false;
-	           
-	           else   
-	        	   
-	        	   return true;
+	           return user != null;
 	           
 	        }finally {
 	        	

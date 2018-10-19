@@ -115,7 +115,7 @@ public class UserBean implements actions {
 	}
 	
 	public void add(){
-		if(userDao.Exist(user.getUsername())){
+		if(userDao.exist(user.getUsername())){
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warn!", "This username exist . Try another."));
 		}
 		else{
@@ -125,7 +125,7 @@ public class UserBean implements actions {
 			}
 			
 			else{
-		user.setRoli(userDao.setRoli(2));
+		user.setRoli(userDao.setRole(2));
 		userDao.add(user);
 		user = new com.mentoring.entities.user();
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "INFO! ", "Your account was sucessfully created"));
