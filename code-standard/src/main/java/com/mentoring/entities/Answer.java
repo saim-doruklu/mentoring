@@ -15,7 +15,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="answer")
-public class answer {
+/*
+ * PMD checks:
+ * UnnecessaryConstructor: removed constructor
+ * ClassNamingConventions: renamed class to Answer
+ * DataClass: is it better to remove getter and setters?
+ */
+public class Answer {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)  
 	@Column(name="id")
@@ -36,13 +42,6 @@ public class answer {
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="question_id")
 	private question question;
-	
-	
-		public answer() {
-		
-			super();
-	
-		}
 
 		
 		public String getTrue1() {

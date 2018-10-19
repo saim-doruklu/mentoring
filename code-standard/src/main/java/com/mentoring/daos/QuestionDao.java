@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+
+import com.mentoring.entities.category;
 import org.hibernate.Session;
 
 import com.mentoring.entities.question;
@@ -11,13 +13,21 @@ import com.mentoring.entities.question;
 @ManagedBean(name = "questionDao")
 
 @ApplicationScoped
-
+/*
+* PMD checks:
+* ForLoopCanBeForEach: replaced for loop with foreach
+* ControlStatementBraces: added braces around if else
+* VariableNamingConventions: replaced method argument name id_categ with idCategory
+* AvoidLiteralsInIfCondition: extracted field from integer in if control statement
+ */
 public class QuestionDao {
 
-//------------------------------------------------------------------------------------------------------------------------
+	private final int maxCategories = 20;
+
+	//------------------------------------------------------------------------------------------------------------------------
 	public void add(question q) {
 
-		Session session = hibernateUtil.getSessionFactory().openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		
 		try {
 			
@@ -41,7 +51,7 @@ public class QuestionDao {
 	
 	public void delete(int id) {
 		
-		Session session = hibernateUtil.getSessionFactory().openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		
 		try {
 
@@ -67,7 +77,7 @@ public class QuestionDao {
 	
 	public void update(question q) {
 		
-		Session session = hibernateUtil.getSessionFactory().openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		
 		try {
 			session.beginTransaction();
@@ -93,7 +103,7 @@ public class QuestionDao {
 		
 		List<question> quests = new ArrayList<question>();
 		
-		Session session = hibernateUtil.getSessionFactory().openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		
 		try {
 			session.beginTransaction();
@@ -117,7 +127,7 @@ public class QuestionDao {
 		
 		List<question> quests = new ArrayList<question>();
 		
-		Session session = hibernateUtil.getSessionFactory().openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		
 		try {
 			
@@ -139,16 +149,16 @@ public class QuestionDao {
 
 	@SuppressWarnings("unchecked")
 	
-	public List<question> getQuestionRandom(int id_categ, int m) {
+	public List<question> getQuestionRandom(int idCategory, int m) {
 
 		List<question> quest = new ArrayList<question>();
 		
-		Session session = hibernateUtil.getSessionFactory().openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		
 		try {
 			session.beginTransaction();
 			
-			quest = session.createQuery("from question where category_id=" + id_categ + " order by rand() ").setMaxResults(m).getResultList();
+			quest = session.createQuery("from question where category_id=" + idCategory + " order by rand() ").setMaxResults(m).getResultList();
 			
 		}catch(Exception e){
 	    	
@@ -172,18 +182,19 @@ public class QuestionDao {
 		List<com.mentoring.entities.category> categories = categoryDao.getCategories();
 		
 		List<question> questions = new ArrayList<question>();
-		
-		if(categories.size()>20)
-			
+
+		if(categories.size()> maxCategories) {
+
 			m = 1;
-		
-		else
+
+		} else {
 			
-		m = 20 / categories.size();
-		
-		for (int i = 0; i < categories.size(); i++) {
-			
-			questions.addAll(getQuestionRandom(categories.get(i).getId(), m));
+		m = maxCategories / categories.size();
+		}
+
+		for (com.mentoring.entities.category category : categories) {
+
+			questions.addAll(getQuestionRandom(category.getId(), m));
 
 		}
 		return questions;
@@ -192,7 +203,7 @@ public class QuestionDao {
 	
 	public question get(int id) {
 		
-		Session session = hibernateUtil.getSessionFactory().openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		
 		question q = new question();
 		

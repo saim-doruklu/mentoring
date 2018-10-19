@@ -1,18 +1,17 @@
 package com.mentoring.managebeans;
 
-import java.util.List;
-
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-
 import com.mentoring.daos.CategoryDao;
 import com.mentoring.entities.category;
 
+import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import java.util.List;
 
+/*
+ * PMD checks:
+ * UnusedImports: removed 3 unused imports
+ */
 public class CategoryBean implements actions {
 	
 	

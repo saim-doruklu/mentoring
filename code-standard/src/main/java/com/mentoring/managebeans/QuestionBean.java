@@ -16,7 +16,7 @@ import org.primefaces.model.UploadedFile;
 
 import com.mentoring.daos.AnswerDao;
 import com.mentoring.daos.QuestionDao;
-import com.mentoring.entities.answer;
+import com.mentoring.entities.Answer;
 import com.mentoring.entities.category;
 import com.mentoring.entities.question;
 
@@ -40,7 +40,7 @@ public class QuestionBean implements actions  {
 	@ManagedProperty(value = "#{loginBean}")
 	private LoginBean loginBean;
 	
-	private answer answer = new answer();
+	private Answer answer = new Answer();
 	
 	private question question = new question();
 	
@@ -116,12 +116,12 @@ public class QuestionBean implements actions  {
 		return question;
 	}
 	
-	public answer getAnswer() {
+	public Answer getAnswer() {
 	
 		return answer;
 	}
 	
-	public void setAnswer(answer answer) {
+	public void setAnswer(Answer answer) {
 	
 		this.answer = answer;
 	}
@@ -212,7 +212,7 @@ public class QuestionBean implements actions  {
 			
 					question = new question();
 			
-					answer = new answer();
+					answer = new Answer();
 			
 					FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "INFO", "The question was sucessfully added"));
 			
@@ -251,7 +251,7 @@ public class QuestionBean implements actions  {
 			
 				question = new question();
 			
-				answer = new answer();
+				answer = new Answer();
 				
 				file = null;
 			
@@ -459,7 +459,7 @@ public class QuestionBean implements actions  {
 	public String getPage(){
 		question = new question();
 		categoryBean.setId(0);
-		answer = new answer();
+		answer = new Answer();
 		if(loginBean.getUser().getRoli().getId()==1)
 			return "question?faces-redirect=true";
 		else

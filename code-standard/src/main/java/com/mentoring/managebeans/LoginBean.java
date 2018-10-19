@@ -15,7 +15,11 @@ import javax.servlet.http.HttpSession;
 @ManagedBean(name="loginBean")
 
 @SessionScoped
-
+/*
+ * PMD checks:
+ * UnnecessaryAnnotationValueElemet: removed value in ManagedProperty
+ * OnlyOneReturn: how to handle two returns in if else
+ */
 public class LoginBean {
 	
 	
@@ -26,7 +30,7 @@ public class LoginBean {
 	private user user = new user();
 
 	
-	@ManagedProperty(value="#{userDao}")
+	@ManagedProperty("#{userDao}")
 	UserDao userDao;
 
 	

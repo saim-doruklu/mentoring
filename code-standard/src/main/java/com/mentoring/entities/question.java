@@ -37,7 +37,7 @@ public class question  {
 	private user useri;
 	
 	@OneToOne(mappedBy="question",cascade=CascadeType.ALL)
-	private answer answer;
+	private Answer answer;
 	
 	@Column(nullable=true)
 	private String image;
@@ -88,11 +88,11 @@ public class question  {
 			this.useri = useri;
 		}
 		
-		public answer getAnswer() {
+		public Answer getAnswer() {
 			return answer;
 		}
 		
-		public void setAnswer(answer answer) {
+		public void setAnswer(Answer answer) {
 			this.answer = answer;
 		}
 		

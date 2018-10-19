@@ -1,9 +1,13 @@
 package com.mentoring.managebeans;
 
+/*
+ * PMD checks:
+ * UnnecessaryModifier: public is not necessary
+ */
 public interface actions {
-	public void add();
-	public void delete(int object);
-	public String update();
-	public String view(int object);
-	public String turnBack();
+	void add();
+	void delete(int object);
+	String update();
+	String view(int object);
+	String turnBack();
 }

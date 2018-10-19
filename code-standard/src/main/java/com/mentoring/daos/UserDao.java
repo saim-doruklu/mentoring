@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 /*
  * Checkstyle checks :
  * Indentation should be white spaces instead of tabs
- * WhitespaceAround : in annotation around '=', before method opening bracket, around '+'
+ * WhitespaceAround : in annotation around '=', before method opening braces, around '+'
  * TODO: figure out how to configure Checkstyle to detect unnecessary comment
  *
  * PMD checks :
@@ -29,7 +29,7 @@ import java.util.logging.Logger;
  * UselessParantheses: Removed parantheses in setRoli
  * UnnecessaryFullyQualifiedName: removed unnecessary package name in exist()
  * CommentDefaultAccessModifier: Commented LOGGER as default
- * Only one return: Substituted two returns with one return in exist()
+ * OnlyOneReturn: Substituted two returns with one return in exist()
  * MethodNamingConventions: Method name Exist changed to exist
  * AtLeastOneConsructor: is it necessary to have empty constructor?
  * LinguisticNaming: name of the method setRoli changed to getRole
@@ -47,7 +47,7 @@ public class UserDao {
 	private static final String HIBERNATE_ERROR = "Hibernate error ";
 	
 	public void add(final user user) {
-        Session session = hibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         
         try {
         	
@@ -70,7 +70,7 @@ public class UserDao {
 	
 	public void delete(int id){
 		
-        Session session = hibernateUtil.getSession();
+        Session session = HibernateUtil.getSession();
         
         try {
             session.beginTransaction();
@@ -95,7 +95,7 @@ public class UserDao {
 //------------------------------------------------------------------------------------------------------------------------	
         public void update(user u){
     	
-            Session session = hibernateUtil.getSession();
+            Session session = HibernateUtil.getSession();
             
             try {
                 session.beginTransaction();
@@ -122,7 +122,7 @@ public class UserDao {
 			
         	List<user> users = new ArrayList<user>();
         	
-             Session session = hibernateUtil.getSession();
+             Session session = HibernateUtil.getSession();
              
              try{ 
             	session.beginTransaction();
@@ -145,7 +145,7 @@ public class UserDao {
 		
 		public user getUser(String password,String username){
 			
-	        Session session = hibernateUtil.getSession();
+	        Session session = HibernateUtil.getSession();
 	        
 	        try {  
 	        	session.beginTransaction();
@@ -166,7 +166,7 @@ public class UserDao {
 	
 		public role getRole(int id){
 			
-			 Session session = hibernateUtil.getSession();
+			 Session session = HibernateUtil.getSession();
 			 
 		        try {
 		           session.beginTransaction();
@@ -183,7 +183,7 @@ public class UserDao {
 //------------------------------------------------------------------------------------------------------------------------
 		public user get(int id){
 			
-	        Session session = hibernateUtil.getSession();
+	        Session session = HibernateUtil.getSession();
 	        
 	        user u = new user();
 	        
@@ -205,7 +205,7 @@ public class UserDao {
 		}
 //------------------------------------------------------------------------------------------------------------------------
 		public boolean exist(String username){
-          Session session = hibernateUtil.getSession();
+          Session session = HibernateUtil.getSession();
 	        
 	        try {  
 	        	session.beginTransaction();

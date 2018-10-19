@@ -14,7 +14,7 @@ public class CategoryDao {
 //-------------------------------------------------------------------------------------------------------------------------	
 	public void add(category c){
 		
-	    Session session = hibernateUtil.getSessionFactory().openSession();
+	    Session session = HibernateUtil.getSessionFactory().openSession();
 	    
 	    try {
 	        session.beginTransaction();
@@ -37,7 +37,7 @@ public class CategoryDao {
 	
 	public void delete(int id){
 		
-        Session session = hibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
         
         try {
            session.beginTransaction();
@@ -64,7 +64,7 @@ public class CategoryDao {
 	
 	public void update(category c){
 		
-        Session session = hibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
         
         try {
             session.beginTransaction();
@@ -91,7 +91,7 @@ public class CategoryDao {
 		
     	List<category> categories = new ArrayList<category>();
     	
-        Session session = hibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
         
          try 
          {   session.beginTransaction();
@@ -116,7 +116,7 @@ public class CategoryDao {
 		
 	    category c = new category();
 	    
-        Session session = hibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
         
         try {
         	

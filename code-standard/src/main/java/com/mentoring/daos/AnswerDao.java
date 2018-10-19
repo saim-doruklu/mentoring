@@ -3,16 +3,17 @@ package com.mentoring.daos;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+
+import com.mentoring.entities.Answer;
 import org.hibernate.Session;
-import com.mentoring.entities.answer;
 
 @ManagedBean(name="answerDao")
 @ApplicationScoped
 public class AnswerDao {
 //-------------------------------------------------------------------------------------------------------------------------	
-public void add(answer a){
+public void add(Answer a){
 		
-	    Session session = hibernateUtil.getSessionFactory().openSession();
+	    Session session = HibernateUtil.getSessionFactory().openSession();
 	    
 	    try {
 	        session.beginTransaction();
@@ -36,13 +37,13 @@ public void add(answer a){
 //--------------------------------------------------------------------------------------------------------------------------
 	public void delete(int id){
 		
-        Session session = hibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
         
         try {
         	
             session.beginTransaction();
             
-            answer a = (answer) session.load(answer.class, new Integer(id));
+            Answer a = (Answer) session.load(Answer.class, new Integer(id));
             
             session.delete(a);
             
@@ -61,9 +62,9 @@ public void add(answer a){
 	}
 	
 //-------------------------------------------------------------------------------------------------------------------------
-	public void update(answer q){
+	public void update(Answer q){
 		
-        Session session = hibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
         
         try {
         	
